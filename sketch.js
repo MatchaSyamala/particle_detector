@@ -18,6 +18,10 @@ let speedOfRec1 = -1;
 let scanner1x = windowWidth / 2;
 let speedOfRec2 = -3;
 
+let scannerHorizontal_y = 0;
+const scannerHorizontalHeight = 50;
+let color2 = r.WHITE;
+
 let color = r.WHITE;
 let color1 = r.WHITE;
 
@@ -82,9 +86,11 @@ function draw() {
 
     r.DrawRectangle(particle1x, 0, particle1Width, windowHeight, r.BLUE);
     r.DrawRectangle(particleX, 0, particleWidth, windowHeight, r.BLUE);
+    r.DrawRectangle(0, particleHorizontalX, windowWidth, particleHorizontalheight, r.BLUE)
 
     r.DrawRectangle(scannerX, 0, recWidth, windowHeight, color);
     r.DrawRectangle(scanner1x, 0, recWidth, windowHeight, color1);
+    r.DrawRectangle(0, scannerHorizontal_y, windowWidth, scannerHorizontalHeight, r.WHITE);
 
     r.ClearBackground(r.BLACK);
     r.EndDrawing();
