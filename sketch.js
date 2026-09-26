@@ -23,9 +23,14 @@ function update() {
     x += recDirection;
 }
 
+function drawRectangle(x, y, width, height, color) {
+    r.DrawRectangle(x, y, width, height, color);
+}
+
 function draw() {
     r.BeginDrawing();
-    r.DrawRectangle(x, 0, recWidth, windowHeight, r.WHITE);
+    drawRectangle(250, 0, 70, windowHeight, r.BLUE);
+    drawRectangle(x, 0, recWidth, windowHeight, r.WHITE);
     r.ClearBackground(r.BLACK);
     r.EndDrawing();
 }
