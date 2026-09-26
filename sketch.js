@@ -1,11 +1,16 @@
 const r = require("raylib");
+
 const windowWidth = 600;
 const windowHeight = 500;
 
 const recWidth = 30;
+const particlex = 270;
+const particleWidth = 70;
 
-let x = 0;
+let scannerX = 0;
 let recDirection = -1;
+
+let color = r.WHITE;
 
 function running() {
     return !r.WindowShouldClose();
@@ -17,10 +22,17 @@ function setup() {
 }
 
 function update() {
-    if ((x + recWidth) === windowWidth || x === 0) {
+    if ((scannerX + recWidth) === windowWidth || scannerX === 0) {
         recDirection = recDirection * -1;
     }
-    x += recDirection;
+    scannerX += recDirection;
+
+
+    if (scannerX + recWidth >= particlex && scannerX <= particlex + particleWidth) {
+        color = r.RED;
+    } else {
+        color = r.WHITE;
+    }
 }
 
 function drawRectangle(x, y, width, height, color) {
@@ -29,8 +41,8 @@ function drawRectangle(x, y, width, height, color) {
 
 function draw() {
     r.BeginDrawing();
-    drawRectangle(250, 0, 70, windowHeight, r.BLUE);
-    drawRectangle(x, 0, recWidth, windowHeight, r.WHITE);
+    drawRectangle(particlex, 0, particleWidth, windowHeight, r.BLUE);
+    drawRectangle(scannerX, 0, recWidth, windowHeight, color);
     r.ClearBackground(r.BLACK);
     r.EndDrawing();
 }
