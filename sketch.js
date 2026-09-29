@@ -137,16 +137,24 @@ function drawScanner(x, y, width, height, color) {
 function draw() {
     r.BeginDrawing();
 
-    drawParticle(particle1_x, 0, particle1_width, windowHeight);
-    drawParticle(particle2_x, 0, particle2_width, windowHeight);
-    drawParticle(0, particle3_x, windowWidth, particle3_height);
+    drawParticles();
 
-    drawScanner(s2.x, 0, scanner_width, windowHeight, s2.color);
-    drawScanner(s1.x, 0, scanner_width, windowHeight, s1.color);
-    drawScanner(0, s3.y, windowWidth, s3.height, s3.color);
+    drawScanners();
 
     r.ClearBackground(r.BLACK);
     r.EndDrawing();
+}
+
+function drawParticles() {
+    drawParticle(particle1_x, 0, particle1_width, windowHeight);
+    drawParticle(particle2_x, 0, particle2_width, windowHeight);
+    drawParticle(0, particle3_x, windowWidth, particle3_height);
+}
+
+function drawScanners() {
+    drawScanner(s2.x, 0, scanner_width, windowHeight, s2.color);
+    drawScanner(s1.x, 0, scanner_width, windowHeight, s1.color);
+    drawScanner(0, s3.y, windowWidth, s3.height, s3.color);
 }
 
 function teardown() {
